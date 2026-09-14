@@ -545,22 +545,27 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: relative;
   overflow: hidden;
   background: var(--problema-bg);
-  padding-top: clamp(160px, 22vh, 260px);
+  padding-top: clamp(220px, 28vh, 380px);
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold. Diagonal orange
-   → charcoal → black sweep, then eased into the light block. */
+   — only once the visitor scrolls past the fold. Wide flat radial
+   centered below the element reads as a gentle arc: corners/top
+   stay dark (matching the hero just above), the curve's crest
+   glows orange, and it settles into the light block at bottom. */
 .problema::before{
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: clamp(130px, 18vh, 220px);
-  /* straight top-to-bottom sweep, full width: dark → orange → light */
-  background: linear-gradient(180deg,
-    var(--hero-dark) 0%,
-    #ff7a00 48%,
-    var(--problema-bg) 100%);
+  height: clamp(200px, 26vh, 340px);
+  background: radial-gradient(
+    220% 100% at 50% 120%,
+    var(--problema-bg) 0%,
+    #d9d9d9 20%,
+    #E8821E 45%,
+    var(--hero-dark) 70%,
+    #2b2b2b 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
