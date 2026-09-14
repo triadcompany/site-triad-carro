@@ -362,7 +362,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   align-items: center;
   overflow: hidden;
   padding-block: clamp(64px, 8vw, 96px);
-  background: linear-gradient(180deg, var(--hero-dark) 88%, var(--problema-bg) 100%);
+  background: var(--hero-dark);
 }
 
 /* image lives only in the right panel; left side is guaranteed solid,
@@ -419,7 +419,23 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   z-index: 0;
   background:
     linear-gradient(90deg, var(--hero-dark) 0%, var(--hero-dark) 38%, transparent 62%),
-    linear-gradient(180deg, rgba(var(--hero-dark-rgb),.5) 0%, rgba(var(--hero-dark-rgb),0) 24%, rgba(var(--hero-dark-rgb),0) 62%, var(--problema-bg) 100%);
+    linear-gradient(180deg, rgba(var(--hero-dark-rgb),.5) 0%, rgba(var(--hero-dark-rgb),0) 24%, rgba(var(--hero-dark-rgb),0) 55%, var(--hero-dark) 82%);
+}
+
+/* long, dramatic hand-off into the next section: dark, then a
+   warm brand-orange glow, then it resolves into the light block */
+.hero-blend{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: min(46vh, 480px);
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    var(--hero-dark) 22%,
+    rgba(249,115,22,.4) 58%,
+    rgba(249,115,22,.12) 78%,
+    var(--problema-bg) 100%);
 }
 
 .hero-content{
