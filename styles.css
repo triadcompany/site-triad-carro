@@ -543,30 +543,9 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
    ========================================================= */
 .problema{
   position: relative;
-  overflow: hidden;
   background: var(--problema-bg);
-  padding-top: clamp(220px, 28vh, 380px);
 }
-/* the hero→problema hand-off lives here, at the top of the SECOND
-   section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold. Straight vertical
-   sweep, endpoints pinned to the exact hex of each neighboring
-   section so both seams match with zero gap. */
-.problema::before{
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: clamp(200px, 26vh, 340px);
-  background: linear-gradient(
-    180deg,
-    var(--hero-dark) 0%,
-    #DD8A3E 45%,
-    var(--problema-bg) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-.problema-content{ position: relative; z-index: 1; text-align: center; margin-inline: auto; }
+.problema-content{ text-align: center; margin-inline: auto; }
 .problema .section-title{
   max-width: none;
   margin-inline: auto;
