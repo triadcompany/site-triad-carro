@@ -556,12 +556,11 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: clamp(130px, 18vh, 220px);
-  /* orange glow radiating from top-center, layered over a plain
-     dark→light base so the edges still connect (a radial alone
-     leaves the sides jumping straight from hero-dark to light). */
-  background:
-    radial-gradient(circle at top center, rgba(255,122,0,.6) 0%, rgba(255,122,0,0) 100%),
-    linear-gradient(180deg, var(--hero-dark) 0%, var(--problema-bg) 100%);
+  /* straight top-to-bottom sweep, full width: dark → orange → light */
+  background: linear-gradient(180deg,
+    var(--hero-dark) 0%,
+    #ff7a00 48%,
+    var(--problema-bg) 100%);
   pointer-events: none;
   z-index: 0;
 }
