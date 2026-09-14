@@ -565,62 +565,6 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 
 /* =========================================================
-   DECISÃO — full-bleed cinematic split, no card boxes.
-   Left path desaturated (the stuck present), right path
-   in full color (where Triad takes you) — the color
-   treatment itself carries the argument.
-   ========================================================= */
-.decisao-head{ margin-bottom: 28px; }
-
-.decisao-split{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--border);
-}
-
-.decisao-panel{
-  position: relative;
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  background: var(--bg);
-}
-.decisao-panel img{
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  transform: scale(1.06);
-  transition: transform 1.2s var(--ease), filter .6s var(--ease);
-  filter: grayscale(85%) contrast(1.05) brightness(.75);
-}
-.decisao-panel.is-visible img{ transform: scale(1); }
-.decisao-panel--accent img{ filter: grayscale(15%) contrast(1.02) brightness(.85); }
-
-.decisao-panel-scrim{
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(23,17,13,0) 40%, rgba(23,17,13,.92) 100%);
-}
-.decisao-panel--accent .decisao-panel-scrim{
-  background: linear-gradient(180deg, rgba(23,17,13,0) 40%, rgba(196,78,13,.35) 78%, rgba(23,17,13,.92) 100%);
-}
-
-.decisao-panel-copy{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: clamp(20px, 3.5vw, 40px);
-}
-.decisao-panel-copy h3{ font-size: clamp(19px, 2.2vw, 24px); color: var(--text); }
-.decisao-panel-copy p{ margin-top: 10px; color: var(--text-muted); font-size: 14.5px; line-height: 1.55; max-width: 40ch; }
-.decisao-panel--accent .decisao-panel-copy h3{ color: var(--text); }
-
-.decisao-cta{ margin-top: 44px; text-align: center; }
-
-@media (max-width: 760px){
-  .decisao-split{ grid-template-columns: 1fr; }
-  .decisao-panel{ aspect-ratio: 4/3; }
-}
-
-/* =========================================================
    FUNDADOR
    ========================================================= */
 .fundador-grid{
