@@ -471,12 +471,53 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 .problema-content{ position: relative; z-index: 1; text-align: center; margin-inline: auto; }
 .problema .section-title{ max-width: none; margin-inline: auto; }
 .problema .section-lead{ margin-inline: auto; }
-.problema-transition{
-  margin-top: 28px;
+
+/* =========================================================
+   DORES — pain checklist, two-column grid (distinct from
+   the single-column hairline lists used elsewhere)
+   ========================================================= */
+.dores .section-title{ max-width: none; }
+.dores-subtitle{
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--text-faint);
+}
+
+.dores-grid{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border);
+}
+.dor-item{
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+}
+.dor-item:nth-child(odd){ border-right: 1px solid var(--border); }
+.dor-x{ flex-shrink: 0; margin-top: 4px; color: var(--text-faint); }
+.dor-item p{ color: var(--text-muted); font-size: 15.5px; line-height: 1.5; }
+
+.dores-urgency{
+  margin-top: 44px;
+  text-align: center;
+  max-width: 62ch;
+  margin-inline: auto;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.4;
   color: var(--accent);
+}
+
+@media (max-width: 640px){
+  .dores-grid{ grid-template-columns: 1fr; }
+  .dor-item:nth-child(odd){ border-right: none; }
 }
 
 /* =========================================================
