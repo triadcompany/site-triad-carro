@@ -543,29 +543,18 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: relative;
   overflow: hidden;
   background: var(--problema-bg);
-  /* must clear the ::before gradient below before any text starts,
-     otherwise the orange band sits behind orange headline text */
-  padding-top: clamp(340px, 66vh, 660px);
+  padding-top: clamp(110px, 15vh, 190px);
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold. */
+   — only once the visitor scrolls past the fold. Short and plain:
+   just dark easing into light, no color, no drama. */
 .problema::before{
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: clamp(320px, 62vh, 620px);
-  /* opaque stops only — no transparency. Blending a translucent
-     orange over the light bg below is what made the last version
-     muddy; solid colors interpolate clean through RGB space. */
-  background: linear-gradient(180deg,
-    var(--hero-dark) 0%,
-    #3a2312 22%,
-    var(--accent-3) 42%,
-    var(--accent) 56%,
-    #f6c39a 76%,
-    var(--problema-bg) 92%,
-    var(--problema-bg) 100%);
+  height: clamp(90px, 13vh, 170px);
+  background: linear-gradient(180deg, var(--hero-dark) 0%, var(--problema-bg) 100%);
   pointer-events: none;
   z-index: 0;
 }
