@@ -17,20 +17,6 @@
     });
   }
 
-  /* ---------- dores carousel arrows ---------- */
-  var doresTrack = document.getElementById("doresTrack");
-  var doresPrev = document.getElementById("doresPrev");
-  var doresNext = document.getElementById("doresNext");
-  if (doresTrack && doresPrev && doresNext) {
-    var scrollByCard = function (dir) {
-      var card = doresTrack.querySelector(".dor-card");
-      var step = card ? card.getBoundingClientRect().width + 20 : 300;
-      doresTrack.scrollBy({ left: dir * step, behavior: reduceMotion ? "auto" : "smooth" });
-    };
-    doresPrev.addEventListener("click", function () { scrollByCard(-1); });
-    doresNext.addEventListener("click", function () { scrollByCard(1); });
-  }
-
   /* ---------- header solid state on scroll (sentinel, no scroll listener) ---------- */
   var header = document.querySelector(".site-header");
   var sentinel = document.getElementById("scrollSentinel");
