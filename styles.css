@@ -295,6 +295,39 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   object-position: 50% 18%;
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+  transform: scale(1);
+}
+
+/* curtain reveal + slow zoom on load, feels intentional rather than a static drop-in */
+.hero-bg-wipe{
+  position: absolute; inset: 0;
+  z-index: 1;
+  background: var(--bg);
+  transform: translateX(100%);
+}
+.hero-bg-wipe::after{
+  content: "";
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-3));
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .hero-bg img{
+    animation: hero-photo-zoom 2.4s var(--ease) both;
+  }
+  .hero-bg-wipe{
+    animation: hero-wipe 1.05s var(--ease) .2s both;
+  }
+}
+
+@keyframes hero-photo-zoom{
+  from{ transform: scale(1.12); }
+  to{ transform: scale(1); }
+}
+@keyframes hero-wipe{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(100%); }
 }
 .hero-bg-gradient{
   position: absolute; inset: 0;
