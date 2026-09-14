@@ -560,7 +560,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   background: linear-gradient(
     180deg,
     var(--hero-dark) 0%,
-    #E8821E 50%,
+    #DD8A3E 50%,
     var(--problema-bg) 100%
   );
   pointer-events: none;
