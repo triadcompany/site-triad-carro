@@ -422,25 +422,6 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
     linear-gradient(180deg, rgba(var(--hero-dark-rgb),.5) 0%, rgba(var(--hero-dark-rgb),0) 24%, rgba(var(--hero-dark-rgb),0) 55%, var(--hero-dark) 82%);
 }
 
-/* long, soft hand-off into the next section: dark, easing through
-   a faint warm glow, then resolving into the light block. Every
-   stop overlaps its neighbor so nothing reads as a hard line. */
-.hero-blend{
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: min(52vh, 560px);
-  z-index: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg,
-    transparent 0%,
-    rgba(var(--hero-dark-rgb),.7) 26%,
-    rgba(var(--hero-dark-rgb),.55) 40%,
-    rgba(249,115,22,.16) 58%,
-    rgba(249,115,22,.05) 74%,
-    var(--problema-bg) 96%,
-    var(--problema-bg) 100%);
-}
-
 .hero-content{
   position: relative;
   z-index: 1;
@@ -558,8 +539,30 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
    gray with dark/orange text regardless of site theme: a
    deliberate color-block moment, not a themed section.
    ========================================================= */
-.problema{ background: var(--problema-bg); }
-.problema-content{ text-align: center; margin-inline: auto; }
+.problema{
+  position: relative;
+  overflow: hidden;
+  background: var(--problema-bg);
+  padding-top: clamp(140px, 26vh, 320px);
+}
+/* the hero→problema hand-off lives here, at the top of the SECOND
+   section, so it never shows inside the hero's own 100dvh viewport
+   — only once the visitor scrolls past the fold. */
+.problema::before{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: clamp(280px, 58vh, 560px);
+  background: linear-gradient(180deg,
+    var(--hero-dark) 0%,
+    rgba(var(--hero-dark-rgb),.78) 20%,
+    rgba(249,115,22,.24) 46%,
+    rgba(249,115,22,.06) 72%,
+    var(--problema-bg) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+.problema-content{ position: relative; z-index: 1; text-align: center; margin-inline: auto; }
 .problema .section-title{
   max-width: none;
   margin-inline: auto;
