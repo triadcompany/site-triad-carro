@@ -597,21 +597,35 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 
 .dores-grid{
-  margin-top: 40px;
+  margin-top: 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--problema-border);
+  gap: 6px 40px;
 }
 .dor-item{
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 24px 28px;
-  border-bottom: 1px solid var(--problema-border);
+  align-items: center;
+  gap: 18px;
+  padding: 14px 0;
 }
-.dor-item:nth-child(odd){ border-right: 1px solid var(--problema-border); }
-.dor-x{ flex-shrink: 0; margin-top: 4px; color: var(--problema-muted); }
-.dor-item p{ color: var(--problema-text); font-size: 15.5px; line-height: 1.5; }
+.dor-icon{
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(249,115,22,.12);
+  color: var(--problema-heading);
+  transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+}
+.dor-item:hover .dor-icon{
+  background: var(--problema-heading);
+  color: #fff;
+  transform: scale(1.07);
+}
+.dor-item p{ color: var(--problema-text); font-size: 16px; font-weight: 500; line-height: 1.45; }
 
 .dores-urgency{
   margin-top: 44px;
@@ -627,7 +641,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 
 @media (max-width: 640px){
   .dores-grid{ grid-template-columns: 1fr; }
-  .dor-item:nth-child(odd){ border-right: none; }
+  .dor-icon{ width: 46px; height: 46px; }
 }
 
 /* =========================================================
