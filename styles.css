@@ -545,19 +545,26 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: relative;
   overflow: hidden;
   background: var(--problema-bg);
-  padding-top: clamp(220px, 30vh, 380px);
+  padding-top: clamp(120px, 16vh, 200px);
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold. Spread over more
-   height so the eye reads it as a soft haze, not a visible band,
-   and there's real breathing room before the headline starts. */
+   — only once the visitor scrolls past the fold. Short on purpose:
+   a long fade squeezed between two big flat fields (solid dark
+   above, solid light below) reads as a hard edge no matter how
+   gradual the math is (Mach-band effect). Eased stops (slow, fast,
+   slow) plus a short span keep it reading as one soft blend. */
 .problema::before{
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: clamp(140px, 20vh, 260px);
-  background: linear-gradient(180deg, var(--hero-dark) 0%, var(--problema-bg) 85%);
+  height: clamp(64px, 9vh, 120px);
+  background: linear-gradient(180deg,
+    var(--hero-dark) 0%,
+    #2b2b2d 22%,
+    #7d7e80 55%,
+    #cdced2 82%,
+    var(--problema-bg) 100%);
   pointer-events: none;
   z-index: 0;
 }
