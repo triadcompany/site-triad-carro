@@ -543,18 +543,19 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: relative;
   overflow: hidden;
   background: var(--problema-bg);
-  padding-top: clamp(110px, 15vh, 190px);
+  padding-top: clamp(220px, 30vh, 380px);
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold. Short and plain:
-   just dark easing into light, no color, no drama. */
+   — only once the visitor scrolls past the fold. Spread over more
+   height so the eye reads it as a soft haze, not a visible band,
+   and there's real breathing room before the headline starts. */
 .problema::before{
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: clamp(90px, 13vh, 170px);
-  background: linear-gradient(180deg, var(--hero-dark) 0%, var(--problema-bg) 100%);
+  height: clamp(140px, 20vh, 260px);
+  background: linear-gradient(180deg, var(--hero-dark) 0%, var(--problema-bg) 85%);
   pointer-events: none;
   z-index: 0;
 }
