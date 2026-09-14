@@ -19,6 +19,8 @@
   --problema-bg: #E5E7EB;
   --problema-heading: #F97316;
   --problema-text: #393939;
+  --problema-muted: rgba(57,57,57,.62);
+  --problema-border: rgba(57,57,57,.16);
   --on-dark-text: #FFFFFF;
   --on-dark-muted: rgba(255,255,255,.74);
   --on-dark-faint: rgba(255,255,255,.5);
@@ -574,32 +576,35 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
    DORES — pain checklist, two-column grid (distinct from
    the single-column hairline lists used elsewhere)
    ========================================================= */
-.dores .section-title{ max-width: none; }
+/* fixed light block, same treatment as Problema right above it —
+   not themed, stays gray/orange/charcoal regardless of dark mode */
+.dores{ background: var(--problema-bg); }
+.dores .section-title{ max-width: none; color: var(--problema-heading); }
 .dores-subtitle{
   display: block;
   margin-top: 10px;
   font-family: var(--font-body);
   font-weight: 500;
   font-size: clamp(16px, 1.8vw, 20px);
-  color: var(--text-faint);
+  color: var(--problema-muted);
 }
 
 .dores-grid{
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--problema-border);
 }
 .dor-item{
   display: flex;
   align-items: flex-start;
   gap: 16px;
   padding: 24px 28px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--problema-border);
 }
-.dor-item:nth-child(odd){ border-right: 1px solid var(--border); }
-.dor-x{ flex-shrink: 0; margin-top: 4px; color: var(--text-faint); }
-.dor-item p{ color: var(--text-muted); font-size: 15.5px; line-height: 1.5; }
+.dor-item:nth-child(odd){ border-right: 1px solid var(--problema-border); }
+.dor-x{ flex-shrink: 0; margin-top: 4px; color: var(--problema-muted); }
+.dor-item p{ color: var(--problema-text); font-size: 15.5px; line-height: 1.5; }
 
 .dores-urgency{
   margin-top: 44px;
@@ -610,7 +615,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   font-weight: 700;
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.4;
-  color: var(--accent);
+  color: var(--problema-heading);
 }
 
 @media (max-width: 640px){
