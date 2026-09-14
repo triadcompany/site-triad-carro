@@ -543,7 +543,9 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   position: relative;
   overflow: hidden;
   background: var(--problema-bg);
-  padding-top: clamp(140px, 26vh, 320px);
+  /* must clear the ::before gradient below before any text starts,
+     otherwise the orange band sits behind orange headline text */
+  padding-top: clamp(340px, 66vh, 660px);
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
@@ -552,12 +554,17 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: clamp(280px, 58vh, 560px);
+  height: clamp(320px, 62vh, 620px);
+  /* opaque stops only — no transparency. Blending a translucent
+     orange over the light bg below is what made the last version
+     muddy; solid colors interpolate clean through RGB space. */
   background: linear-gradient(180deg,
     var(--hero-dark) 0%,
-    rgba(var(--hero-dark-rgb),.78) 20%,
-    rgba(249,115,22,.24) 46%,
-    rgba(249,115,22,.06) 72%,
+    #3a2312 22%,
+    var(--accent-3) 42%,
+    var(--accent) 56%,
+    #f6c39a 76%,
+    var(--problema-bg) 92%,
     var(--problema-bg) 100%);
   pointer-events: none;
   z-index: 0;
