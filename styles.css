@@ -549,28 +549,19 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 /* the hero→problema hand-off lives here, at the top of the SECOND
    section, so it never shows inside the hero's own 100dvh viewport
-   — only once the visitor scrolls past the fold.
-
-   Geometry is solved on purpose, not guessed: the ellipse center
-   sits exactly on the element's own bottom edge (50% 100%) with a
-   vertical radius equal to the element's full height (Ry = 100%).
-   That makes bottom-center land at normalized distance 0 (the
-   FIRST stop) and top-center land at distance exactly 1.0 (the
-   LAST stop) — so the two seams are mathematically pinned to the
-   exact colors of the sections they touch, not an approximation.
-   Top corners overshoot past 1.0 and clamp to the last stop too,
-   so the whole top edge reads as one flat hero-dark line. */
+   — only once the visitor scrolls past the fold. Straight vertical
+   sweep, endpoints pinned to the exact hex of each neighboring
+   section so both seams match with zero gap. */
 .problema::before{
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
   height: clamp(200px, 26vh, 340px);
-  background: radial-gradient(
-    220% 100% at 50% 100%,
-    var(--problema-bg) 0%,
-    #d9d9d9 15%,
-    #E8821E 45%,
-    var(--hero-dark) 100%
+  background: linear-gradient(
+    180deg,
+    var(--hero-dark) 0%,
+    #E8821E 50%,
+    var(--problema-bg) 100%
   );
   pointer-events: none;
   z-index: 0;
