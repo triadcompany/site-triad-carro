@@ -3,6 +3,19 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- header solid state on scroll (sentinel, no scroll listener) ---------- */
+  var header = document.querySelector(".site-header");
+  var sentinel = document.getElementById("scrollSentinel");
+  if (header && sentinel && "IntersectionObserver" in window) {
+    var headerIO = new IntersectionObserver(
+      function (entries) {
+        header.classList.toggle("is-scrolled", !entries[0].isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    headerIO.observe(sentinel);
+  }
+
   /* ---------- scroll reveal ---------- */
   var revealEls = document.querySelectorAll(".reveal");
   if (reduceMotion || !("IntersectionObserver" in window)) {

@@ -14,6 +14,8 @@
 
 <div class="grain" aria-hidden="true"></div>
 
+<span id="scrollSentinel" aria-hidden="true"></span>
+
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="topo">
   <div class="container header-inner">
@@ -56,24 +58,35 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Especialista em loja de carro</p>
-        <h1 class="hero-title">Mais venda.<br>Não só mais lead.</h1>
-        <p class="hero-sub">Tráfego pago, CRM e assessoria comercial juntos pra transformar lead em venda fechada na sua loja.</p>
-        <div class="hero-actions">
-          <a href="#form" class="btn btn-primary btn-lg">Quero meu diagnóstico grátis</a>
-          <a href="#diagnostico" class="btn btn-ghost btn-lg">Ver como funciona</a>
-        </div>
+    <div class="hero-bg">
+      <img src="assets/img/hero-founder.jpg" alt="Fundador da Triad Company em estúdio, luz dramática" fetchpriority="high">
+      <div class="hero-bg-gradient"></div>
+    </div>
+
+    <div class="container hero-content reveal">
+      <p class="eyebrow">Especialista em loja de carro</p>
+      <h1 class="hero-title">Mais venda.<br>Não só mais lead.</h1>
+      <p class="hero-sub">Tráfego pago, CRM e assessoria comercial juntos pra transformar lead em venda fechada na sua loja.</p>
+      <div class="hero-actions">
+        <a href="#form" class="btn btn-primary btn-lg">Quero meu diagnóstico grátis</a>
+        <a href="#diagnostico" class="btn btn-ghost btn-lg">Ver como funciona</a>
       </div>
 
-      <div class="hero-media reveal" data-reveal-delay="120">
-        <div class="hero-photo-frame">
-          <img src="assets/img/hero-founder.jpg" alt="Fundador da Triad Company em estúdio, luz dramática" width="900" height="1200" fetchpriority="high">
-          <div class="hero-photo-overlay"></div>
-          <p class="hero-photo-caption">Fundador, Triad Company</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">+30%</span>
+          <span class="hero-stat-label">é nossa meta mínima de agendamento</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">&gt;80%</span>
+          <span class="hero-stat-label">de comparecimento na call de diagnóstico</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3 meses</span>
+          <span class="hero-stat-label">é o tempo mínimo pro funil amadurecer</span>
         </div>
       </div>
+      <p class="hero-stats-note">Metas internas de processo da Triad. Não são resultado de cliente.</p>
     </div>
   </section>
 
