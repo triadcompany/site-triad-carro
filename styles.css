@@ -580,12 +580,18 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 
 /* =========================================================
-   DORES — pain checklist, two-column grid (distinct from
-   the single-column hairline lists used elsewhere)
+   DORES — horizontal drag/scroll carousel, a genuinely
+   different layout family from every list elsewhere on the
+   page. Fixed light block, same treatment as Problema above.
    ========================================================= */
-/* fixed light block, same treatment as Problema right above it —
-   not themed, stays gray/orange/charcoal regardless of dark mode */
 .dores{ background: var(--problema-bg); }
+.dores-head{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
 .dores .section-title{ max-width: none; color: var(--problema-heading); }
 .dores-subtitle{
   display: block;
@@ -596,20 +602,44 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   color: var(--problema-muted);
 }
 
-.dores-grid{
-  margin-top: 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px 40px;
+.dores-nav{ display: flex; gap: 10px; }
+.dores-arrow{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--problema-border);
+  background: transparent;
+  color: var(--problema-text);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
-.dor-item{
+.dores-arrow:hover{ background: var(--problema-heading); border-color: var(--problema-heading); color: #fff; }
+
+.dores-track{
+  margin-top: 40px;
   display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 14px 0;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.dores-track::-webkit-scrollbar{ display: none; }
+.dores-track-pad{ flex: 0 0 max(20px, calc((100vw - var(--container)) / 2 + 20px)); }
+
+.dor-card{
+  flex: 0 0 auto;
+  width: min(74vw, 280px);
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: var(--radius-card);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: 0 1px 3px rgba(57,57,57,.1);
 }
 .dor-icon{
-  flex-shrink: 0;
   width: 52px;
   height: 52px;
   border-radius: 50%;
@@ -618,14 +648,10 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   justify-content: center;
   background: rgba(249,115,22,.12);
   color: var(--problema-heading);
-  transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+  transition: background .25s var(--ease), color .25s var(--ease);
 }
-.dor-item:hover .dor-icon{
-  background: var(--problema-heading);
-  color: #fff;
-  transform: scale(1.07);
-}
-.dor-item p{ color: var(--problema-text); font-size: 16px; font-weight: 500; line-height: 1.45; }
+.dor-card:hover .dor-icon{ background: var(--problema-heading); color: #fff; }
+.dor-card p{ color: var(--problema-text); font-size: 17px; font-weight: 600; line-height: 1.4; }
 
 .dores-urgency{
   margin-top: 44px;
@@ -640,8 +666,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 
 @media (max-width: 640px){
-  .dores-grid{ grid-template-columns: 1fr; }
-  .dor-icon{ width: 46px; height: 46px; }
+  .dores-nav{ display: none; }
 }
 
 /* =========================================================
