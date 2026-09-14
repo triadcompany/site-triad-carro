@@ -698,7 +698,12 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 
 @media (max-width: 640px){
   .transform-row{ flex-direction: column; align-items: flex-start; gap: 8px; }
-  .transform-arrow{ transform: rotate(90deg); }
+  /* flex-basis (260px/320px) was tuned for the row layout's width;
+     under column direction that same number reads as a MIN-HEIGHT
+     instead, which is what blew up the vertical gaps on mobile. */
+  .transform-old,
+  .transform-new{ flex: none; width: 100%; }
+  .transform-arrow{ transform: rotate(90deg); flex: none; }
 }
 
 /* =========================================================
