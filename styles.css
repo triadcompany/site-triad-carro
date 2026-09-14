@@ -16,6 +16,9 @@
      of the page theme — photos keep a dark scrim either way */
   --hero-dark-rgb: 26,26,26;
   --hero-dark: rgb(var(--hero-dark-rgb));
+  --problema-bg: #E5E7EB;
+  --problema-heading: #F97316;
+  --problema-text: #393939;
   --on-dark-text: #FFFFFF;
   --on-dark-muted: rgba(255,255,255,.74);
   --on-dark-faint: rgba(255,255,255,.5);
@@ -359,7 +362,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   align-items: center;
   overflow: hidden;
   padding-block: clamp(64px, 8vw, 96px);
-  background: var(--hero-dark);
+  background: linear-gradient(180deg, var(--hero-dark) 88%, var(--problema-bg) 100%);
 }
 
 /* image lives only in the right panel; left side is guaranteed solid,
@@ -416,7 +419,7 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
   z-index: 0;
   background:
     linear-gradient(90deg, var(--hero-dark) 0%, var(--hero-dark) 38%, transparent 62%),
-    linear-gradient(180deg, rgba(var(--hero-dark-rgb),.5) 0%, rgba(var(--hero-dark-rgb),0) 24%, rgba(var(--hero-dark-rgb),0) 68%, rgba(var(--hero-dark-rgb),.92) 100%);
+    linear-gradient(180deg, rgba(var(--hero-dark-rgb),.5) 0%, rgba(var(--hero-dark-rgb),0) 24%, rgba(var(--hero-dark-rgb),0) 62%, var(--problema-bg) 100%);
 }
 
 .hero-content{
@@ -532,12 +535,21 @@ main > section{ padding-block: clamp(64px, 9vw, 120px); }
 }
 
 /* =========================================================
-   PROBLEMA — flat brand-gray block, no photo
+   PROBLEMA — flat brand-gray block, no photo. Stays light
+   gray with dark/orange text regardless of site theme: a
+   deliberate color-block moment, not a themed section.
    ========================================================= */
-.problema{ background: var(--bg-soft); }
+.problema{ background: var(--problema-bg); }
 .problema-content{ text-align: center; margin-inline: auto; }
-.problema .section-title{ max-width: none; margin-inline: auto; }
-.problema .section-lead{ margin-inline: auto; }
+.problema .section-title{
+  max-width: none;
+  margin-inline: auto;
+  color: var(--problema-heading);
+}
+.problema .section-lead{
+  margin-inline: auto;
+  color: var(--problema-text);
+}
 
 /* =========================================================
    DORES — pain checklist, two-column grid (distinct from
